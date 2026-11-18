@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+src/arabic_dialect_classification.egg-info/PKG-INFO
+src/arabic_dialect_classification.egg-info/SOURCES.txt
+src/arabic_dialect_classification.egg-info/dependency_links.txt
+src/arabic_dialect_classification.egg-info/requires.txt
+src/arabic_dialect_classification.egg-info/top_level.txt

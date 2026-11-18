@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arabic-dialect-classification"
+version = "0.1.0"
+description = "Country-level Arabic dialect identification on tweets (AraBERT vs MARBERT vs TF-IDF baseline), tracked with MLflow"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+    "pyarrow",
+    "scikit-learn",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+# Everything needed to run experiments (baseline + fine-tuning + MLflow + report + ONNX export)
+train = [
+    "datasets",
+    "mlflow>=3.0",
+    "torch",
+    "transformers>=4.46,<5",
+    "accelerate>=0.34",
+    "arabert",
+    "onnx",
+    "onnxruntime",
+    "tokenizers",
+]
+
+# Lightweight serving with ONNX Runtime (no torch / transformers)
+serve = [
+    "onnxruntime",
+    "tokenizers",
+    "streamlit",
+]
+
+# Only needed to serve AraBERT models (they use AraBERT's own text preprocessor)
+arabert = ["arabert"]
+
+# pytest + ruff, plus the torch-free ONNX libs so CI can test the ONNX code path
+dev = [
+    "pytest",
+    "ruff",
+    "onnx",
+    "onnxruntime",
+    "tokenizers",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
