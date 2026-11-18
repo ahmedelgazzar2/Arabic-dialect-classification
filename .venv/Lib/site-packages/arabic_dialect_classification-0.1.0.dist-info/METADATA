@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: arabic-dialect-classification
+Version: 0.1.0
+Summary: Country-level Arabic dialect identification on tweets (AraBERT vs MARBERT vs TF-IDF baseline), tracked with MLflow
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pyarrow
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Provides-Extra: train
+Requires-Dist: datasets; extra == "train"
+Requires-Dist: mlflow>=3.0; extra == "train"
+Requires-Dist: torch; extra == "train"
+Requires-Dist: transformers<5,>=4.46; extra == "train"
+Requires-Dist: accelerate>=0.34; extra == "train"
+Requires-Dist: arabert; extra == "train"
+Requires-Dist: onnx; extra == "train"
+Requires-Dist: onnxruntime; extra == "train"
+Requires-Dist: tokenizers; extra == "train"
+Provides-Extra: serve
+Requires-Dist: onnxruntime; extra == "serve"
+Requires-Dist: tokenizers; extra == "serve"
+Requires-Dist: streamlit; extra == "serve"
+Provides-Extra: arabert
+Requires-Dist: arabert; extra == "arabert"
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: onnx; extra == "dev"
+Requires-Dist: onnxruntime; extra == "dev"
+Requires-Dist: tokenizers; extra == "dev"
+
+# Arabic-dialect-classification
+this is a repo for Arabic-dialect-classification Graduation project for instant AI diploma
